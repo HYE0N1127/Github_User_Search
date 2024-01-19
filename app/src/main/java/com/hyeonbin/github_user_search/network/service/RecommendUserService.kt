@@ -1,0 +1,14 @@
+package com.hyeonbin.github_user_search.network.service
+
+import com.hyeonbin.github_user_search.network.model.response.ResponseRecommendUserSearchData
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface RecommendUserService {
+
+    @GET("search/user")
+    suspend fun searchRecommendUser(
+        @Query("q") userName: String
+    ): Response<List<ResponseRecommendUserSearchData>>
+}
