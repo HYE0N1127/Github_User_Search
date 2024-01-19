@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -59,4 +60,7 @@ dependencies {
 
     // Coroutine, Flow
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
+    // KTX
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 }
