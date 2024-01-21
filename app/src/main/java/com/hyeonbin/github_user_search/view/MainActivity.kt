@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
     private val adapter: RecommendUserAdapter by lazy { RecommendUserAdapter() }
 
+    private var isFirstExecution = true // 최초 실행 여부를 나타내는 변수
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -53,7 +55,15 @@ class MainActivity : AppCompatActivity() {
         with(viewModel) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 recommendUserFlow.collectLatest {
-                    adapter.submitList(it.userResult)
+                    if (it.userResult.isEmpty() && !isFirstExecution) {
+                        Toast.makeText(this@MainActivity, "검색 결과가 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        adapter.submitList(it.userResult)
+                    }
+                    // 최초 실행 플래그
+                    if (isFirstExecution) {
+                        isFirstExecution = false
+                    }
                 }
             }
         }
