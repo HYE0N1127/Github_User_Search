@@ -1,4 +1,4 @@
-package com.hyeonbin.github_user_search.network.model.response
+package com.hyeonbin.github_user_search.network.model.response.RecommendUser
 
 import com.google.gson.annotations.SerializedName
 
