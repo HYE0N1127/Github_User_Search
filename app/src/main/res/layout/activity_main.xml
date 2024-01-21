@@ -9,10 +9,11 @@
             type="com.hyeonbin.github_user_search.viewmodel.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#2b3137"
+        android:orientation="vertical"
         tools:context=".view.MainActivity">
 
         <EditText
@@ -28,21 +29,17 @@
             android:padding="8dp"
             android:imeOptions="actionSearch"
             android:textColorHint="#dee2d6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:importantForAutofill="no" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommend_user_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="14dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search_user"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="14"
             tools:listitem="@layout/item_recommend_user" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

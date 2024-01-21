@@ -16,10 +16,6 @@ import kotlinx.coroutines.launch
 class MainViewModel: ViewModel() {
     private val repository: RecommendUserRepository by lazy { RecommendUserRepositoryImpl() }
 
-    // Data Binding Variable
-    private val _searchUserQuery: MutableStateFlow<String> = MutableStateFlow("")
-    val searchUserQuery: StateFlow<String> = _searchUserQuery.asStateFlow()
-
     // Server Networking Variable
     private val _recommendUserFlow: MutableStateFlow<RecommendUser> = MutableStateFlow(RecommendUser(0, true, emptyList()))
     val recommendUserFlow: StateFlow<RecommendUser> = _recommendUserFlow.asStateFlow()
@@ -27,8 +23,7 @@ class MainViewModel: ViewModel() {
     fun searchUserList(searchQuery: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getRecommendUser(searchQuery).collect {
-                Log.d("Test5", "$it")
-//                _recommendUserFlow.emit(it)
+                _recommendUserFlow.emit(it)
             }
         }
     }
