@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -56,4 +60,11 @@ dependencies {
 
     // Coroutine, Flow
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
+    // KTX
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation ("androidx.activity:activity-ktx:1.1.0")
+
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

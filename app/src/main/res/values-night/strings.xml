@@ -1,4 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Github_User_Search</string>
     <string name="hint_suggest_user_id">깃허브 유저 아이디를 검색해주세요.</string>
 </resources>
