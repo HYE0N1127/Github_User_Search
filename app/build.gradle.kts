@@ -64,4 +64,7 @@ dependencies {
     // KTX
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
     implementation ("androidx.activity:activity-ktx:1.1.0")
+
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }
