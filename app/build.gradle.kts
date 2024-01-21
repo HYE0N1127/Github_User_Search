@@ -63,4 +63,5 @@ dependencies {
 
     // KTX
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation ("androidx.activity:activity-ktx:1.1.0")
 }
