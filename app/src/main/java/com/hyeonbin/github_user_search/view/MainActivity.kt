@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.hyeonbin.github_user_search.adapter.RecommendUserAdapter
 import com.hyeonbin.github_user_search.databinding.ActivityMainBinding
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
 import com.hyeonbin.github_user_search.viewmodel.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest

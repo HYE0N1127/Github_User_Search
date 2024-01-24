@@ -1,7 +1,6 @@
 package com.hyeonbin.github_user_search.repository.impl
 
-import com.hyeonbin.github_user_search.entity.RecommendUser
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUser
 import com.hyeonbin.github_user_search.mapper.toEntity
 import com.hyeonbin.github_user_search.network.client.RetrofitClient
 import com.hyeonbin.github_user_search.repository.RecommendUserRepository

@@ -1,9 +1,9 @@
 package com.hyeonbin.github_user_search.mapper
 
-import com.hyeonbin.github_user_search.entity.RecommendUser
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
-import com.hyeonbin.github_user_search.network.model.response.RecommendUser.ResponseBaseRecommendUserSearchData
-import com.hyeonbin.github_user_search.network.model.response.RecommendUser.ResponseRecommendUserSearchData
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUser
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUserItem
+import com.hyeonbin.github_user_search.network.model.response.recommend_user.ResponseBaseRecommendUserSearchData
+import com.hyeonbin.github_user_search.network.model.response.recommend_user.ResponseRecommendUserSearchData
 
 fun ResponseRecommendUserSearchData.toEntity() = RecommendUserItem(
     login ?: "null",

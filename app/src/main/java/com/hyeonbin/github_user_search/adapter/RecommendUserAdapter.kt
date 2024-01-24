@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.hyeonbin.github_user_search.adapter.difftuil.RecommendUserDiffUtil
 import com.hyeonbin.github_user_search.databinding.ItemRecommendUserBinding
-import com.hyeonbin.github_user_search.entity.RecommendUser
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUserItem
 
 class RecommendUserAdapter : ListAdapter<RecommendUserItem, RecommendUserAdapter.RecommendUserViewHolder>(RecommendUserDiffUtil) {
     inner class RecommendUserViewHolder(private val binding: ItemRecommendUserBinding) : RecyclerView.ViewHolder(binding.root) {

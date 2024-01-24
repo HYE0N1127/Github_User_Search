@@ -1,7 +1,7 @@
 package com.hyeonbin.github_user_search.adapter.difftuil
 
 import androidx.recyclerview.widget.DiffUtil
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUserItem
 
 object RecommendUserDiffUtil: DiffUtil.ItemCallback<RecommendUserItem>() {
     override fun areItemsTheSame(oldItem: RecommendUserItem, newItem: RecommendUserItem): Boolean {

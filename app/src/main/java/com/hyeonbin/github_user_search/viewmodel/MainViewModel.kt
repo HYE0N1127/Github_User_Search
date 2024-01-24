@@ -1,10 +1,8 @@
 package com.hyeonbin.github_user_search.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hyeonbin.github_user_search.entity.RecommendUser
-import com.hyeonbin.github_user_search.entity.RecommendUserItem
+import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUser
 import com.hyeonbin.github_user_search.repository.RecommendUserRepository
 import com.hyeonbin.github_user_search.repository.impl.RecommendUserRepositoryImpl
 import kotlinx.coroutines.Dispatchers
