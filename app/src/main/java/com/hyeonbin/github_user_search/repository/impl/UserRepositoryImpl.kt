@@ -3,11 +3,11 @@ package com.hyeonbin.github_user_search.repository.impl
 import com.hyeonbin.github_user_search.entity.recommend_user.RecommendUser
 import com.hyeonbin.github_user_search.mapper.toEntity
 import com.hyeonbin.github_user_search.network.client.RetrofitClient
-import com.hyeonbin.github_user_search.repository.RecommendUserRepository
+import com.hyeonbin.github_user_search.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class RecommendUserRepositoryImpl : RecommendUserRepository {
+class UserRepositoryImpl : UserRepository {
     private val recommendUserService = RetrofitClient.getUserService()
     override suspend fun getRecommendUser(userName: String): Flow<RecommendUser> = flow {
         val response = recommendUserService.searchRecommendUser(userName)
