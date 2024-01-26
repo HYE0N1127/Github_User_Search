@@ -1,6 +1,6 @@
 package com.hyeonbin.github_user_search.network.client
 
-import com.hyeonbin.github_user_search.network.service.RecommendUserService
+import com.hyeonbin.github_user_search.network.service.UserService
 import com.hyeonbin.github_user_search.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -29,5 +29,5 @@ object RetrofitClient {
     private fun getLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-    fun getRecommendUserService(): RecommendUserService = retrofitClient.create(RecommendUserService::class.java)
+    fun getRecommendUserService(): UserService = retrofitClient.create(UserService::class.java)
 }
