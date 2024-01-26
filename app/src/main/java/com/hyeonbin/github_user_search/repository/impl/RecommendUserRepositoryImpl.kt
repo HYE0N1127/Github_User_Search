@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class RecommendUserRepositoryImpl : RecommendUserRepository {
-    private val recommendUserService = RetrofitClient.getRecommendUserService()
+    private val recommendUserService = RetrofitClient.getUserService()
     override suspend fun getRecommendUser(userName: String): Flow<RecommendUser> = flow {
         val response = recommendUserService.searchRecommendUser(userName)
         val emptyData = RecommendUser(0, true, emptyList())

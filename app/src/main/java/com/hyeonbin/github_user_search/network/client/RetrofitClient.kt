@@ -29,5 +29,5 @@ object RetrofitClient {
     private fun getLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 
-    fun getRecommendUserService(): UserService = retrofitClient.create(UserService::class.java)
+    fun getUserService(): UserService = retrofitClient.create(UserService::class.java)
 }
