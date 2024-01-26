@@ -21,8 +21,6 @@ data class User (
     val location: String,
     // 현재 재직 중인 회사
     val company: String,
-    // 소셜 네트워크 URL(ex. Blog)
-    val blog: String,
     // 한 줄 소개
     val bio: String
 )

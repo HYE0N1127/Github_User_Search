@@ -1,0 +1,16 @@
+
+  "login": "HYE0N1127",
+  "id": 63246501,
+  "node_id": "MDQ6VXNlcjYzMjQ2NTAx",
+  "avatar_url": "https://avatars.githubusercontent.com/u/63246501?v=4",
+  "type": "User",
+  "site_admin": false,
+  "name": "현빈",
+  "company": null,
+  "blog": "dev.hyeonbin@gmail.com",
+  "location": "Korea, Seoul",
+  "email": null,
+  "hireable": null,
+  "bio": "열심히 공부하기"
+  "followers": 75,
+  "following": 68
