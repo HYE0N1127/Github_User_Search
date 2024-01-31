@@ -1,5 +1,6 @@
 package com.hyeonbin.github_user_search.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.hyeonbin.github_user_search.adapter.RecommendUserAdapter
 import com.hyeonbin.github_user_search.databinding.ActivityMainBinding
+import com.hyeonbin.github_user_search.util.Constants
 import com.hyeonbin.github_user_search.viewmodel.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -42,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         adapter.setOnUserItemClickListener {
+            val intent = Intent(this, UserProfileActivity::class.java).putExtra(Constants.USER_NAME, it)
+            startActivity(intent)
         }
     }
 
