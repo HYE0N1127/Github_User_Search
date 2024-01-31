@@ -22,5 +22,9 @@ data class User (
     // 현재 재직 중인 회사
     val company: String,
     // 한 줄 소개
-    val bio: String
+    val bio: String,
+    // Error 여부 확인
+    val isError: Boolean? = null,
+    // Error Message
+    val errorMessage: String? = null
 )
