@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.hyeonbin.github_user_search.R
 import com.hyeonbin.github_user_search.databinding.ActivityUserProfileBinding
+import com.hyeonbin.github_user_search.state.UiState
 import com.hyeonbin.github_user_search.util.Constants
 import com.hyeonbin.github_user_search.viewmodel.UserProfileViewModel
 import kotlinx.coroutines.Dispatchers
@@ -40,26 +41,20 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun initCollector() = lifecycleScope.launch(Dispatchers.Main) {
         with(viewModel) {
+            getUserDetail(userName)
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                if (!isFirstLoadState) {
-                    isFirstLoadState = true
-                    viewModel.getUserDetail(userName)
-                } else {
-                    viewModel.getUserDetail(userName)
+                userDetailFlow.collectLatest { recommendUserState ->
+                    when (recommendUserState) {
+                        is UiState.Loading -> {
+                        }
+                        is UiState.Success -> {
+                            Toast.makeText(this@UserProfileActivity, "서버 통신 성공!", Toast.LENGTH_SHORT).show()
+                        }
+                        is UiState.Error -> {
+                        }
+                    }
                 }
 
-                userDetailFlow.collectLatest {
-                    if (it.login.isEmpty() && !isFirstExecution) {
-                        Toast.makeText(this@UserProfileActivity, "에러가 발생하였습니다. ${it.errorMessage}", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this@UserProfileActivity, "서버 통신에 성공하였습니다", Toast.LENGTH_SHORT).show()
-                        Log.d("Hyeon", "$it")
-                    }
-                    // 최초 실행 플래그
-                    if (isFirstExecution) {
-                        isFirstExecution = false
-                    }
-                }
             }
         }
     }
