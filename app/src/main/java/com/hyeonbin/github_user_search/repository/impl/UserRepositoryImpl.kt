@@ -30,19 +30,22 @@ class UserRepositoryImpl : UserRepository {
         }
     }
 
-    override suspend fun getUserDetail(userName: String): Flow<User> = flow {
+    override suspend fun getUserDetail(userName: String): Flow<UiState<User>> = flow {
         val response = userService.getDetailUserInfo(userName)
         if (response.isSuccessful) {
-            if (response.body() == null) {
-                val errorData = User("", 0, "", "", "", false, 0, 0, "", "", "", isError = true, errorMessage = "값이 비어있습니다.")
-                emit(errorData)
-            } else {
-                val value = response.body()!!.toEntity()
-                emit(value)
+            when {
+                response.body() == null -> {
+                    emit(UiState.Error)
+                }
+
+                response.body() != null -> {
+                    val value = response.body()!!.toEntity()
+                    emit(UiState.Success(value))
+                }
             }
         } else {
-            val errorData = User("", 0, "", "", "", false, 0, 0, "", "", "", isError = true, errorMessage = "오류가 발생하였습니다.")
-            emit(errorData)
+            // TODO(에러 상황에서 빈 리스트가 아닌 특정 에러를 알려줄 만한 방안이 필요함)
+            emit(UiState.Error)
         }
     }
 }

@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
     suspend fun getRecommendUser(userName: String): Flow<UiState<RecommendUser>>
-    suspend fun getUserDetail(userName: String): Flow<User>
+    suspend fun getUserDetail(userName: String): Flow<UiState<User>>
 }
